@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ------------------*/
+/* Custom Properties */
+/*-------------------*/
+@layer base {
+	:root {
+		--color-primary: hsl(150, 20%, 25%);
+		--color-primary-darker: hsl(150, 21%, 17%);
+		--color-primary-lighter: hsl(150, 19%, 48%);
+		--color-primary-subtle: hsl(150, 75%, 88%);
+
+		--color-secondary: hsl(46, 15%, 83%);
+		--color-seconday-darker: hsl(46, 15%, 63%);
+		--color-secondary-lighter: hsl(46, 15%, 92%);
+		--color-secondary-subtle: hsl(46, 15%, 97%);
+
+		--color-light-1: hsl(152, 17%, 79%);
+		--color-light-2: hsl(150, 8%, 85%);
+		--color-light-3: hsl(144, 20%, 95%);
+		--color-light-4: hsl(150, 25%, 98%);
+
+		--text-body: hsl(0, 0%, 20%);
+	}
+}
+
+/* ------------------*/
+/* General CSS Reset */
+/*-------------------*/
+
+@layer base {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		height: 100%;
+	}
+
+	body {
+		min-height: 100%;
+	}
+
+	html {
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+		/* -webkit-tap-highlight-color: transparent; */
+	}
+
+	input:focus-visible {
+		outline: 2px solid transparent;
+		outline-offset: 2px;
+	}
+
+	img {
+		width: 100%;
+		max-inline-size: 100%;
+		max-width: unset;
+	}
+
+	button {
+		outline: transparent;
+	}
+
+
+	body {
+		font-size: 1.6rem;
+		font-family: theme("fontFamily.work-sans");
+		color: var(--text-body)
+	}
+}

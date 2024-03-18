@@ -1,0 +1,47 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"useDefineForClassFields": true,
+		"skipLibCheck": true,
+		"paths": {
+			"@/*": ["./src/*"],
+			"@public/*": ["./public/*"],
+		},
+		"baseUrl": ".",
+
+		/* Next Bundler mode */
+		"moduleResolution": "node",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"moduleDetection": "force",
+		"verbatimModuleSyntax": true,
+		"plugins": [
+			{
+				"name": "next",
+			},
+		],
+		"incremental": true,
+		"noEmit": true,
+		"jsx": "preserve",
+
+		/* Linting */
+		"strict": true,
+		"allowJs": false,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowUnreachableCode": false,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"noErrorTruncation": true,
+		"noUncheckedIndexedAccess": true,
+	},
+
+	"include": ["src/**/*.ts", "src/**/*.tsx", "./public/**/*.tsx", "./*.ts", ".next/types/**/*.ts"],
+	"exclude": ["node_modules"],
+}

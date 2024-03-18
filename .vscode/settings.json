@@ -1,0 +1,19 @@
+{
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+
+	// For consistent formating across machines
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"prettier.requireConfig": true,
+	"editor.tabSize": 3,
+	"editor.indentSize": "tabSize",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+
+	"editor.codeActionsOnSave": {
+		"source.addMissingImports": "never",
+		"source.organizeImports.biome": "explicit"
+	},
+
+	"tailwindCSS.rootFontSize": 10
+}
