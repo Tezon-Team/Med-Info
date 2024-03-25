@@ -115,7 +115,7 @@ function HomePage() {
 							<Image
 								className={cnJoin(
 									"aspect-[272/292] max-h-[29.2rem] md:aspect-[340/362] md:max-h-[36.2rem]",
-									index === 1 && "mt-[8rem]"
+									index === 1 && "md:mt-[8rem]"
 								)}
 								src={coreService.imageSrc}
 								alt=""
