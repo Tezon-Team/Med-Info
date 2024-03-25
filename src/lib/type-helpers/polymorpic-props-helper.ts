@@ -1,5 +1,3 @@
-import type { PrettyOmit } from "./global-type-helpers";
-
 type AsProp<TElement extends React.ElementType> = {
 	as?: TElement;
 };
