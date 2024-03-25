@@ -3,7 +3,7 @@
 import type { ForwardedRefType, InferProps } from "@/lib/type-helpers/global-type-helpers";
 import { cnMerge } from "@/lib/utils/cn";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { forwardRef } from "react";
+import { forwardRef, isValidElement } from "react";
 import { IconBox } from "../primitives";
 
 function AccordionItem(
@@ -17,7 +17,7 @@ function AccordionItem(
 
 function AccordionTrigger(
 	props: Omit<InferProps<typeof AccordionPrimitive.Trigger>, "className"> & {
-		icon?: string;
+		icon?: string | React.JSX.Element;
 		classNames?: { base?: string; icon?: string };
 	},
 	ref: ForwardedRefType<typeof AccordionPrimitive.Trigger>
@@ -36,13 +36,17 @@ function AccordionTrigger(
 			>
 				{children}
 
-				<IconBox
-					icon={icon ?? "radix-icons:chevron-down"}
-					className={cnMerge(
-						"size-[16px] shrink-0 transition-transform duration-200",
-						classNames?.icon
-					)}
-				/>
+				{isValidElement(icon) && icon}
+
+				{!isValidElement(icon) && (
+					<IconBox
+						icon={(icon as string) ?? "radix-icons:chevron-down"}
+						className={cnMerge(
+							"size-[16px] shrink-0 transition-transform duration-200",
+							classNames?.icon
+						)}
+					/>
+				)}
 			</AccordionPrimitive.Trigger>
 		</AccordionPrimitive.Header>
 	);

@@ -2,41 +2,55 @@ import type { ForwardedRefType } from "@/lib/type-helpers/global-type-helpers";
 import type { PolymorphicPropsWithRef } from "@/lib/type-helpers/polymorpic-props-helper";
 import { forwardRef } from "react";
 
-type ForProps<TArray extends unknown[]> =
+type RenderPropFn<TArrayItem> = (
+	item: NoInfer<TArrayItem>,
+	index: number,
+	array: TArrayItem[]
+) => React.ReactNode;
+
+export type EachProp<TArrayItem> = { each: TArrayItem[] };
+
+export type ForRenderProps<TArrayItem> =
 	| {
-			each: TArray;
-			render: (item: TArray[number], index: number) => React.ReactNode;
-			children?: "Hey, Sorry but you've already used the render prop, so the children prop is redundant";
+			children: RenderPropFn<TArrayItem>;
+			render?: "Hey, Sorry but since your're currently using the children prop, the render prop is now redundant";
 	  }
 	| {
-			each: TArray;
-			children: (item: TArray[number], index: number) => React.ReactNode;
-			render?: "Hey, Sorry but you've already used the children prop, so the render prop is redundant";
+			children?: "Hey, Sorry but since your're currently using the render prop, so the children prop is now redundant";
+			render: RenderPropFn<TArrayItem>;
 	  };
 
-function For<TArrayProp extends unknown[]>(props: ForProps<TArrayProp>) {
+type ForProps<TArrayItem> = ForRenderProps<TArrayItem> & EachProp<TArrayItem>;
+
+function For<TArrayItem>(props: ForProps<TArrayItem>) {
 	const { each, render, children } = props;
 
-	const ReactNodeList = each.map((item, index) => {
+	if (each == null) {
+		return [];
+	}
+
+	const JSXElementList = each.map((...params) => {
+		const coercedParams = params as Parameters<RenderPropFn<TArrayItem>>;
+
 		if (typeof children === "function") {
-			return children(item, index);
+			return children(...coercedParams);
 		}
 
-		return render(item, index);
+		return render(...coercedParams);
 	});
 
-	return ReactNodeList;
+	return JSXElementList;
 }
 
-function ForList<TArray extends unknown[], TElement extends React.ElementType = "ul">(
-	props: PolymorphicPropsWithRef<TElement, ForProps<TArray> & { className?: string }>,
+function ForList<TArrayItem, TElement extends React.ElementType = "ul">(
+	props: PolymorphicPropsWithRef<TElement, ForProps<TArrayItem> & { className?: string }>,
 	ref: ForwardedRefType<HTMLElement>
 ) {
 	const { each, render, children, as: ListContainer = "ul", className, ...restOfListProps } = props;
 
 	return (
 		<ListContainer className={className} {...restOfListProps} ref={ref}>
-			<For {...({ each, render, children } as ForProps<TArray>)} />
+			<For {...({ each, render, children } as ForProps<TArrayItem>)} />
 		</ListContainer>
 	);
 }

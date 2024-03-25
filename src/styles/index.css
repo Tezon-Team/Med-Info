@@ -70,6 +70,7 @@
 
 	body {
 		font-size: 1.6rem;
+		line-height: 1.5;
 		font-family: theme("fontFamily.work-sans");
 		color: var(--text-body)
 	}

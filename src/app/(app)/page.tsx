@@ -1,9 +1,11 @@
 "use client";
 
+import { ChevronDownIcon } from "@/components/icons";
 import { Card, IconBox } from "@/components/primitives";
 import { Accordion } from "@/components/ui";
 import { useDragScroll } from "@/lib/hooks";
 import { useElementList } from "@/lib/hooks/useElementList";
+import { cnJoin } from "@/lib/utils/cn";
 import { feature1, feature2, feature3, hero, tipPlaceHolder } from "@public/assets/images/landing-page";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,35 +64,38 @@ function HomePage() {
 	const [FAQList] = useElementList();
 	const [CardList] = useElementList();
 
-	const dragScrollProps = useDragScroll<HTMLUListElement>({ hasMobileSupport: false });
+	const { dragScrollProps, dragContainerClasses, dragItemClasses } = useDragScroll<HTMLUListElement>();
 
 	return (
-		<main className="mx-auto max-w-[40rem] space-y-[5.6rem] px-[2.4rem] py-[5.6rem]">
-			<section>
-				<h1 className="text-[3.2rem] font-bold leading-[4rem] text-medinfo-primary [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
-					Free <span>access</span> to knowledge and an easy chit-chat with the best{" "}
-					<span>doctors</span>
-				</h1>
+		<main className="mx-auto space-y-[5.6rem] px-[2.4rem] py-[5.6rem] max-md:max-w-[40rem] md:space-y-[9.2rem] md:px-[7rem] md:py-[9.2rem] lg:px-[10rem]">
+			<section className="md:flex md:flex-row-reverse md:items-center md:gap-[6.7rem]">
+				<div className="min-w-[40rem]">
+					<h1 className="text-balance text-[clamp(3.2rem,5.2vw,6.8rem)] font-bold leading-[4rem] text-medinfo-primary md:leading-[7.6rem] [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
+						Free <span>access</span> to knowledge and an easy chit-chat with the best{" "}
+						<span>doctors</span>
+					</h1>
 
-				<p className="mt-[1.5rem]">
-					Lorem ipsum dolor sit amet consectetur. Amet nunc bibendum vitae pretium ultrices pulvinar
-					lacus ultrices. A id fermentum aliquet facilisi consequat tortor. Est donec tincidunt diam
-					sit. Arcu ut platea ac purus. Tincidunt faucibus tristique interdum pharetra cras duis
-					mauris. Viverra a placerat maecenas felis tristique lectus erat. Tempus nec vel euismod amet
-					cras.
-				</p>
+					<p className="mt-[1.5rem] md:text-[1.8rem] md:leading-[2.6rem]">
+						Lorem ipsum dolor sit amet consectetur. Amet nunc bibendum vitae pretium ultrices
+						pulvinar lacus ultrices. A id fermentum aliquet facilisi consequat tortor. Est donec
+						tincidunt diam sit. Arcu ut platea ac purus. Tincidunt faucibus tristique interdum
+						pharetra cras duis mauris. Viverra a placerat maecenas felis tristique lectus erat.
+						Tempus nec vel euismod amet cras.
+					</p>
 
-				<button className="mt-[2.4rem] rounded-[8px] bg-medinfo-primary px-[2.4rem] py-[1.2rem] text-white">
-					Join Us
-				</button>
+					<button className="mt-[2.4rem] rounded-[8px] bg-medinfo-primary px-[2.4rem] py-[1.2rem] text-white md:px-[3.2rem] md:py-[1.8rem] md:text-[2rem]">
+						Join Us
+					</button>
+				</div>
 
-				<div className="relative ml-[1.9rem] mt-[calc(4rem+1.9rem)] w-max">
-					<span className="absolute bottom-[1.9rem] right-[1.9rem] z-[-1] block size-full rounded-[16px] bg-medinfo-primary" />
+				<div className="relative ml-[1.9rem] w-max shrink-0 max-md:mt-[calc(4rem+1.9rem)]">
+					<span className="absolute bottom-[1.9rem] right-[1.9rem] z-[-1] block size-full rounded-[16px] bg-medinfo-primary md:bottom-[2.8rem] md:right-[2.8rem]" />
 
 					<Image
-						className="h-[27.3rem] max-w-[22.3rem]"
+						className="aspect-[223/273] min-h-[27.3rem] md:aspect-[340/415] md:min-h-[41.5rem]"
 						src={hero as string}
 						alt=""
+						priority={true}
 						width={223}
 						height={273}
 					/>
@@ -98,17 +103,20 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary">
+				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary md:text-[5.2rem] md:font-bold md:leading-[6rem]">
 					Our Core Services
 				</h2>
 
 				<CoreServiceList
-					className="mt-[2.4rem] flex flex-col items-center gap-[1.6rem] text-center text-[2.2rem] font-medium"
+					className="mt-[2.4rem] flex flex-col items-center gap-[1.6rem] text-center text-[2.2rem] font-medium md:mt-[5.6rem] md:flex-row md:justify-center md:gap-[2.8rem]"
 					each={coreServices}
-					render={(coreService) => (
+					render={(coreService, index) => (
 						<li key={coreService.description}>
 							<Image
-								className="h-[29rem] max-w-[27.2rem]"
+								className={cnJoin(
+									"aspect-[272/292] max-h-[29.2rem] md:aspect-[340/362] md:max-h-[36.2rem]",
+									index === 1 && "mt-[8rem]"
+								)}
 								src={coreService.imageSrc}
 								alt=""
 								width={272}
@@ -121,35 +129,35 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary">
+				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary md:text-[5.2rem] md:font-bold md:leading-[6rem]">
 					Why MedInfo Nigeria?
 				</h2>
 
 				<FeatureList
-					className="mt-[4.8rem] grid grid-cols-2 gap-x-[2rem] gap-y-[4rem] text-center"
+					className="mt-[4.8rem] grid grid-cols-2 justify-center gap-x-[2rem] gap-y-[4rem] text-center md:mt-[8.8rem] md:grid-cols-[repeat(4,_minmax(16.1rem,24.8rem))] md:gap-x-[2.8rem]"
 					each={features}
 					render={(feature) => (
 						<li
 							key={feature.description}
-							className="relative flex flex-col items-center justify-center rounded-[16px] border border-medinfo-primary px-[0.35rem] py-[5.4rem]"
+							className="relative flex flex-col items-center justify-center rounded-[16px] border border-medinfo-primary px-[0.35rem] py-[5.4rem] md:px-[4.7rem] md:py-[6.7rem]"
 						>
-							<span className="absolute top-[-2.4rem] block size-[4.8rem] rounded-full bg-white p-[1.2rem] text-[2.4rem] [box-shadow:0_4px_4px_hsl(0,0%,0%,0.12)]">
+							<span className="absolute top-[-2.4rem] block size-[4.8rem] rounded-full bg-white p-[1.2rem] text-[2.4rem] [box-shadow:0_4px_4px_hsl(0,0%,0%,0.12)] md:size-[6.4rem] md:text-[4rem]">
 								<IconBox icon={feature.icon} />
 							</span>
 
-							<p>{feature.description}</p>
+							<p className="text-[2rem]">{feature.description}</p>
 						</li>
 					)}
 				/>
 			</section>
 
 			<section>
-				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary">
+				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary md:text-[5.2rem] md:font-bold md:leading-[6rem]">
 					Advantages of Virtual Healthcare
 				</h2>
 
 				<AdvantageList
-					className="mt-[2.4rem] flex flex-col gap-[2.4rem]"
+					className="mt-[2.4rem] flex flex-col gap-[2.4rem] md:mt-[5.6rem] md:flex-row md:gap-[2.8rem]"
 					each={advantages}
 					render={(advantage) => (
 						<li key={advantage.title}>
@@ -170,23 +178,29 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary">
+				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary md:text-[5.2rem] md:font-bold md:leading-[6rem]">
 					Did you know?
 				</h2>
 
 				<CardList
 					{...dragScrollProps}
-					className="mt-[2.4rem] flex cursor-grab gap-[2rem] overflow-x-auto supports-[scrollbar-width]:[scrollbar-width:none] max-sm:snap-x max-sm:snap-mandatory [&::-webkit-scrollbar]:hidden"
+					className={cnJoin(
+						"mt-[2.4rem] gap-[2rem] [align-items:safe_center] md:mt-[5.6rem]",
+						dragContainerClasses
+					)}
 					each={[...Array(4).keys()]}
 					render={(item) => (
 						<Card
 							as="li"
 							key={item}
-							className="w-[16.1rem] shrink-0 snap-center space-y-[1.2rem] rounded-[16px] border-[1.4px] border-medinfo-light-1 pb-[1.2rem]"
+							className={cnJoin(
+								"w-[16.1rem] shrink-0 space-y-[1.2rem] rounded-[16px] border-[1.4px] border-medinfo-light-1 pb-[1.2rem] md:w-[27.6rem]",
+								dragItemClasses
+							)}
 						>
-							<Card.Header className="h-[11.7rem]">
+							<Card.Header>
 								<Image
-									className="rounded-t-[16px]"
+									className="min-h-[11.7rem] rounded-t-[16px] object-cover md:max-h-[17.6rem]"
 									src={tipPlaceHolder as string}
 									alt=""
 									draggable={false}
@@ -211,21 +225,25 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary">
+				<h2 className="text-center text-[2.8rem] font-semibold leading-[3.6rem] text-medinfo-primary md:text-[5.2rem] md:font-bold md:leading-[6rem]">
 					Frequently Asked Questions
 				</h2>
 
 				<Accordion.Root type="single" collapsible={true} asChild={true}>
 					<FAQList
+						className="mt-[2.4rem] w-full space-y-[0.8rem] md:mt-[5.6rem] md:space-y-[1.6rem]"
 						each={FAQs}
 						render={(FAQ) => (
 							<Accordion.Item key={FAQ.question} value={FAQ.answer} asChild={true}>
 								<li>
 									<Accordion.Trigger
-										icon="fluent:chevron-circle-down-12-filled"
+										icon={
+											<span className="flex items-center justify-center rounded-full bg-medinfo-primary p-[1rem] md:p-[1.6rem]">
+												<ChevronDownIcon className="size-[1.6rem] md:size-[2.4rem]" />
+											</span>
+										}
 										classNames={{
-											base: "text-[2.2rem] min-h-[6.8rem] rounded-t-[16px] text-medinfo-primary border-x border-t border-medinfo-primary-darker data-[state=closed]:rounded-b-[16px] data-[state=closed]:border-b py-[1.5rem] px-[2.4rem]",
-											icon: "size-[3.6rem]",
+											base: "text-[2.2rem] md:font-semibold md:text-[3.2rem] min-h-[6.8rem] rounded-t-[16px] border-x border-t border-medinfo-primary-darker data-[state=closed]:rounded-b-[16px] data-[state=closed]:border-b py-[1.5rem] px-[2.4rem] md:p-[2.4rem]",
 										}}
 									>
 										{FAQ.question}
@@ -238,7 +256,6 @@ function HomePage() {
 								</li>
 							</Accordion.Item>
 						)}
-						className="mt-[2.4rem] w-full space-y-[0.8rem]"
 					/>
 				</Accordion.Root>
 			</section>
