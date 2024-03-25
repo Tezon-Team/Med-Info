@@ -69,8 +69,8 @@ function HomePage() {
 	return (
 		<main className="mx-auto space-y-[5.6rem] px-[2.4rem] py-[5.6rem] max-md:max-w-[40rem] md:space-y-[9.2rem] md:px-[7rem] md:py-[9.2rem] lg:px-[10rem]">
 			<section className="md:flex md:flex-row-reverse md:items-center md:gap-[6.7rem]">
-				<div className="min-w-[40rem]">
-					<h1 className="text-balance text-[clamp(3.2rem,5.2vw,6.8rem)] font-bold leading-[4rem] text-medinfo-primary md:leading-[7.6rem] [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
+				<div>
+					<h1 className="text-center text-[clamp(3.2rem,5.2vw,6.8rem)] font-bold leading-[4rem] text-medinfo-primary md:leading-[7.6rem] [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
 						Free <span>access</span> to knowledge and an easy chit-chat with the best{" "}
 						<span>doctors</span>
 					</h1>
