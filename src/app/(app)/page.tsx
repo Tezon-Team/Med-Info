@@ -145,7 +145,7 @@ function HomePage() {
 								<IconBox icon={feature.icon} />
 							</span>
 
-							<p className="text-[2rem]">{feature.description}</p>
+							<p className="md:text-[2rem]">{feature.description}</p>
 						</li>
 					)}
 				/>
