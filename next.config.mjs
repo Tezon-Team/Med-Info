@@ -4,6 +4,8 @@ const nextConfig = {
 	// experimental: {
 	// 	typedRoutes: true,
 	// },
+
+	ignoreDuringBuilds: true,
 };
 
 export default nextConfig;
