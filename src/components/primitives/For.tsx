@@ -1,5 +1,5 @@
 import type { ForwardedRefType } from "@/lib/type-helpers/global-type-helpers";
-import type { PolymorphicPropsWithRef } from "@/lib/type-helpers/polymorpic-props-helper";
+import type { PolymorphicPropsWithRef } from "@/lib/type-helpers/polymorphism-helper";
 import { forwardRef } from "react";
 
 type RenderPropFn<TArrayItem> = (

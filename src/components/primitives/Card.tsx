@@ -1,4 +1,4 @@
-import type { PolymorphicProps } from "@/lib/type-helpers/polymorpic-props-helper";
+import type { PolymorphicProps } from "@/lib/type-helpers/polymorphism-helper";
 import { Slot } from "./Slot";
 
 type CardProps = {
