@@ -5,5 +5,5 @@
 		"composite": true
 	},
 
-	"include": ["../src/**/*", "../**/*"]
+	"include": ["../**/*"]
 }

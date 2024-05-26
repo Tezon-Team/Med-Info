@@ -7,7 +7,7 @@
 		"skipLibCheck": true,
 		"paths": {
 			"@/*": ["./src/*"],
-			"@public/*": ["./public/*"],
+			"@public/*": ["./public/*"]
 		},
 		"baseUrl": ".",
 
@@ -21,8 +21,8 @@
 		"verbatimModuleSyntax": true,
 		"plugins": [
 			{
-				"name": "next",
-			},
+				"name": "next"
+			}
 		],
 		"incremental": true,
 		"noEmit": true,
@@ -39,9 +39,9 @@
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
 		"noErrorTruncation": true,
-		"noUncheckedIndexedAccess": true,
+		"noUncheckedIndexedAccess": true
 	},
 
-	"include": ["src/**/*.ts", "src/**/*.tsx", "./public/**/*.tsx", "./*.ts", ".next/types/**/*.ts"],
-	"exclude": ["node_modules"],
+	"include": ["**/*.ts", "**/*.tsx", "public/**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules"]
 }
