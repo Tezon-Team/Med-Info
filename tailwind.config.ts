@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const tailwindConfig = {
-	content: ["./src/**/*.{ts,tsx,mdx}"],
+	content: ["./**/*.{ts,tsx,mdx}"],
 
 	theme: {
 		screens: {

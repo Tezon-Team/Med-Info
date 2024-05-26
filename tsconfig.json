@@ -6,8 +6,7 @@
 		"useDefineForClassFields": true,
 		"skipLibCheck": true,
 		"paths": {
-			"@/*": ["./src/*"],
-			"@public/*": ["./public/*"]
+			"@/*": ["./*"]
 		},
 		"baseUrl": ".",
 

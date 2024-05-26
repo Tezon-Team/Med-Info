@@ -3,7 +3,6 @@
 import { fixupPluginRules } from "@eslint/compat";
 import eslintBase from "@eslint/js";
 import eslintNextjs from "@next/eslint-plugin-next";
-import * as eslintQuery from "@tanstack/eslint-plugin-query";
 import eslintImportX from "eslint-plugin-import-x";
 import eslintJsxA11y from "eslint-plugin-jsx-a11y";
 import eslintReact from "eslint-plugin-react";
@@ -18,7 +17,7 @@ import tsEslint from "typescript-eslint";
 
 const eslintConfigArray = [
 	// == Global Options
-	{ ignores: ["dist/**", "node_modules/**", "build/**"] },
+	{ ignores: ["dist/**", "node_modules/**", "build/**", ".next/**"] },
 	{
 		languageOptions: {
 			globals: {
@@ -244,7 +243,6 @@ const eslintConfigArray = [
 	// == Typescript Eslint Rules
 	...tsEslint.configs.strictTypeChecked,
 	...tsEslint.configs.stylisticTypeChecked,
-
 	{
 		languageOptions: {
 			parserOptions: {
@@ -532,24 +530,12 @@ const eslintConfigArray = [
 		rules: {
 			"tailwindcss/no-custom-classname": "off",
 			"tailwindcss/no-contradicting-classname": "off",
-			"tailwindcss/no-unnecessary-arbitrary-value": "off",
 			"tailwindcss/classnames-order": [
 				"warn",
 				{
 					config: "./tailwind.config.ts",
 				},
 			],
-		},
-	},
-
-	// == TanStack Query Rules
-
-	{
-		plugins: {
-			"@tanstack/query": fixupPluginRules(eslintQuery),
-		},
-		rules: {
-			...eslintQuery.configs.recommended.rules,
 		},
 	},
 

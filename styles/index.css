@@ -47,7 +47,6 @@
 	}
 
 	html {
-		font-size: 62.5%;
 		scroll-behavior: smooth;
 		/* -webkit-tap-highlight-color: transparent; */
 	}
@@ -69,7 +68,7 @@
 
 
 	body {
-		font-size: 1.6rem;
+		font-size: 16px;
 		line-height: 1.5;
 		font-family: theme("fontFamily.work-sans");
 		color: var(--text-body)

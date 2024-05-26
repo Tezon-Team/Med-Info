@@ -31,9 +31,11 @@ const useDragScroll = <TElement extends HTMLElement>(usage: "desktopOnly" | "reg
 		if (!dragContainerRef.current) return;
 
 		const dx = event.clientX - positionRef.current.x;
-		const dy = event.clientY - positionRef.current.y;
 
-		dragContainerRef.current.scrollTop = positionRef.current.top - dy;
+		// == Removed for now;
+		// const dy = event.clientY - positionRef.current.y;
+
+		// dragContainerRef.current.scrollTop = positionRef.current.top - dy;
 		dragContainerRef.current.scrollLeft = positionRef.current.left - dx;
 	});
 
@@ -87,7 +89,7 @@ const useDragScroll = <TElement extends HTMLElement>(usage: "desktopOnly" | "reg
 		usage === "desktopOnly" && "max-md:cursor-default max-md:flex-col"
 	);
 
-	const dragItemClasses = "snap-center snap-always" as const;
+	const dragItemClasses = "snap-center snap-always";
 
 	return { dragContainerClasses, dragScrollProps, dragItemClasses };
 };

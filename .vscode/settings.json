@@ -15,5 +15,5 @@
 		"source.organizeImports.biome": "explicit"
 	},
 
-	"tailwindCSS.rootFontSize": 10
+	"tailwindCSS.rootFontSize": 16
 }

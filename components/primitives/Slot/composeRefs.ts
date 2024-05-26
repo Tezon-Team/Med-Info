@@ -1,3 +1,4 @@
+/* eslint-disable valid-jsdoc */
 export type PossibleRef<TRef> = React.Ref<TRef> | undefined;
 
 /**
@@ -9,7 +10,6 @@ const setRef = <TRef>(ref: PossibleRef<TRef>, value: TRef) => {
 
 	if (typeof ref === "function") {
 		ref(value);
-
 		return;
 	}
 
