@@ -40,7 +40,7 @@ function AccordionTrigger(
 
 				{!isValidElement(icon) && (
 					<IconBox
-						icon={(icon as string) ?? "radix-icons:chevron-down"}
+						icon={(icon as string | undefined) ?? "radix-icons:chevron-down"}
 						className={cnMerge(
 							"size-[16px] shrink-0 transition-transform duration-200",
 							classNames?.icon
