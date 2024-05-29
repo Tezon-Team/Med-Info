@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {
-	experimental: {
-		typedRoutes: true,
-		scrollRestoration: true,
-	},
-};
+const nextConfig = {};
 
 export default nextConfig;

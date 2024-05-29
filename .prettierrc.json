@@ -1,6 +1,6 @@
 {
 	"plugins": ["prettier-plugin-tailwindcss"],
-	"tailwindFunctions": ["cnMerge", "cnJoin"],
+	"tailwindFunctions": ["cnMerge", "cnJoin", "tv"],
 	"jsxSingleQuote": false,
 	"printWidth": 107,
 	"singleQuote": false,

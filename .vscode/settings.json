@@ -15,5 +15,6 @@
 		"source.organizeImports.biome": "explicit"
 	},
 
-	"tailwindCSS.rootFontSize": 16
+	"tailwindCSS.rootFontSize": 16,
+	"cSpell.words": ["medinfo"]
 }

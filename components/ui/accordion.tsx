@@ -4,7 +4,7 @@ import type { ForwardedRefType, InferProps } from "@/lib/type-helpers/global-typ
 import { cnMerge } from "@/lib/utils/cn";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { forwardRef, isValidElement } from "react";
-import { IconBox } from "../primitives";
+import { IconBox } from "../common/IconBox";
 
 function AccordionItem(
 	props: InferProps<typeof AccordionPrimitive.Item>,
@@ -29,7 +29,7 @@ function AccordionTrigger(
 			<AccordionPrimitive.Trigger
 				ref={ref}
 				className={cnMerge(
-					"flex flex-1 items-center justify-between py-[16px] text-[14px] font-medium transition-all [&[data-state=open]>svg]:rotate-180",
+					"flex flex-1 items-center justify-between py-4 text-[14px] font-medium transition-all [&[data-state=open]>svg]:rotate-180",
 					classNames?.base
 				)}
 				{...restOfProps}
@@ -42,7 +42,7 @@ function AccordionTrigger(
 					<IconBox
 						icon={(icon as string | undefined) ?? "radix-icons:chevron-down"}
 						className={cnMerge(
-							"size-[16px] shrink-0 transition-transform duration-200",
+							"size-4 shrink-0 transition-transform duration-200",
 							classNames?.icon
 						)}
 					/>
@@ -62,7 +62,7 @@ function AccordionContent(
 		<AccordionPrimitive.Content
 			ref={ref}
 			className={cnMerge(
-				"overflow-hidden py-[16px] text-[14px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+				"overflow-hidden py-4 text-[14px] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
 				className
 			)}
 			{...restOfProps}

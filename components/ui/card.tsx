@@ -1,5 +1,5 @@
 import type { PolymorphicProps } from "@/lib/type-helpers/polymorphism-helper";
-import { Slot } from "./Slot";
+import { Slot } from "../common/Slot";
 
 type CardProps = {
 	className?: string;

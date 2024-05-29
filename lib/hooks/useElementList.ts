@@ -1,4 +1,4 @@
-import { For } from "@/components/primitives";
+import { For } from "@/components/common";
 
 type UseElementList = (type?: "withWrapper" | "base") => [typeof For.List | typeof For.Base];
 

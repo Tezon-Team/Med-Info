@@ -1,6 +1,8 @@
+import { withTV } from "tailwind-variants/transformer";
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
-const tailwindConfig = {
+const tailwindConfig = withTV({
 	content: ["./**/*.{ts,tsx,mdx}"],
 
 	theme: {
@@ -69,7 +71,22 @@ const tailwindConfig = {
 		},
 	},
 
-	plugins: [],
-} satisfies Config;
+	plugins: [
+		plugin(({ addComponents }) => {
+			const scrollNone = {
+				".scrollbar-none": {
+					"-ms-overflow-style": "none" /* IE and Edge */,
+					"scrollbar-width": "none" /* Firefox */,
+
+					"&::-webkit-scrollbar": {
+						display: "none",
+					},
+				},
+			};
+
+			addComponents(scrollNone);
+		}),
+	],
+}) satisfies Config;
 
 export default tailwindConfig;
