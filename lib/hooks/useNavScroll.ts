@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { isBrowser } from "../utils/constants";
 import { useConstant } from "./useConstant";
 
-const useNavScroll = (optionsInit?: IntersectionObserverInit) => {
-	const options = { rootMargin: "10px 0px 0px 0px", ...optionsInit };
+const useNavScroll = (options: IntersectionObserverInit = {}) => {
+	const { rootMargin = "10px 0px 0px 0px", ...restOfOptions } = options;
 
 	const headerRef = useRef<HTMLElement>(null);
 
@@ -12,10 +12,13 @@ const useNavScroll = (optionsInit?: IntersectionObserverInit) => {
 	const headerObserver = useConstant(
 		() =>
 			isBrowser &&
-			new IntersectionObserver(([entry]) => {
-				if (!entry) return;
-				setIsScrolled(!entry.isIntersecting);
-			}, options)
+			new IntersectionObserver(
+				([entry]) => {
+					if (!entry) return;
+					setIsScrolled(!entry.isIntersecting);
+				},
+				{ rootMargin, ...restOfOptions }
+			)
 	);
 
 	useEffect(() => {
