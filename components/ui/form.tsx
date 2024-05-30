@@ -20,7 +20,7 @@ type FormRootProps<TValues extends FieldValues> = React.ComponentPropsWithoutRef
 
 type FormItemProps<TValues extends FieldValues> = {
 	// eslint-disable-next-line react/no-unused-prop-types
-	control: Control<TValues>; // == Here for type inference of name prop for the time being
+	control?: Control<TValues>; // == Here for type inference of name prop for the time being
 	name: keyof TValues;
 	children: React.ReactNode;
 	className?: string;
@@ -50,11 +50,13 @@ const [FormItemProvider, useFormItemContext] = createCustomContext<ContextValue>
 });
 
 function FormRoot<TValues extends FieldValues>(props: FormRootProps<TValues>) {
-	const { children, methods, ...restOfProps } = props;
+	const { children, className, methods, ...restOfProps } = props;
 
 	return (
 		<HookFormProvider {...methods}>
-			<form {...restOfProps}>{children}</form>
+			<form className={cnMerge("flex flex-col", className)} {...restOfProps}>
+				{children}
+			</form>
 		</HookFormProvider>
 	);
 }

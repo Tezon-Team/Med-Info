@@ -70,7 +70,7 @@ function HomePage() {
 		<main className="mx-auto space-y-[56px] px-6 py-[56px] max-md:max-w-[400px] md:space-y-[92px] md:px-[70px] md:py-[92px] lg:px-[100px]">
 			<section className="md:flex md:flex-row-reverse md:items-center md:gap-[67px]">
 				<div>
-					<h1 className="text-[clamp(32px,5.2vw,68px)] font-bold leading-10 text-medinfo-primary max-md:text-center md:text-balance md:leading-[76px] [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
+					<h1 className="text-[clamp(32px,5.2vw,68px)] font-bold leading-10 text-medinfo-primary-main max-md:text-center md:text-balance md:leading-[76px] [&:hover>span]:text-medinfo-secondary-darker [&>span]:[transition:color_250ms_ease-in-out]">
 						Free <span>access</span> to knowledge and an easy chit-chat with the best{" "}
 						<span>doctors</span>
 					</h1>
@@ -83,13 +83,11 @@ function HomePage() {
 						Tempus nec vel euismod amet cras.
 					</p>
 
-					<Button size={{ lg: "large" }} className="mt-6">
-						Join Us
-					</Button>
+					<Button className="mt-6">Join Us</Button>
 				</div>
 
 				<div className="relative ml-[19px] w-max shrink-0 max-md:mt-[calc(40px_+_19px)]">
-					<span className="absolute bottom-[19px] right-[19px] z-[-1] block size-full rounded-[16px] bg-medinfo-primary md:bottom-[28px] md:right-[28px]" />
+					<span className="absolute bottom-[19px] right-[19px] z-[-1] block size-full rounded-[16px] bg-medinfo-primary-main md:bottom-[28px] md:right-[28px]" />
 
 					<Image
 						className="aspect-[223/273] min-h-[273px] md:aspect-[340/415] md:min-h-[415px]"
@@ -103,7 +101,7 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary md:text-[52px] md:font-bold md:leading-[60px]">
+				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary-main md:text-[52px] md:font-bold md:leading-[60px]">
 					Our Core Services
 				</h2>
 
@@ -129,7 +127,7 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary md:text-[52px] md:font-bold md:leading-[60px]">
+				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary-main md:text-[52px] md:font-bold md:leading-[60px]">
 					Why MedInfo Nigeria?
 				</h2>
 
@@ -139,7 +137,7 @@ function HomePage() {
 					render={(feature) => (
 						<li
 							key={feature.description}
-							className="relative flex flex-col items-center justify-center rounded-[16px] border border-medinfo-primary px-[3.5px] py-[54px] md:px-[47px] md:py-[67px]"
+							className="relative flex flex-col items-center justify-center rounded-[16px] border border-medinfo-primary-main px-[3.5px] py-[54px] md:px-[47px] md:py-[67px]"
 						>
 							<span className="md:text-10 absolute top-[-24px] block size-12 rounded-full bg-white p-3 text-[24px] [box-shadow:0_4px_4px_hsl(0,0%,0%,0.12)] md:size-[64px]">
 								<IconBox icon={feature.icon} />
@@ -152,7 +150,7 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary md:text-[52px] md:font-bold md:leading-[60px]">
+				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary-main md:text-[52px] md:font-bold md:leading-[60px]">
 					Advantages of Virtual Healthcare
 				</h2>
 
@@ -161,11 +159,11 @@ function HomePage() {
 					each={advantages}
 					render={(advantage) => (
 						<li key={advantage.title}>
-							<span className="block size-[92px] rounded-[16px] bg-medinfo-primary-subtle p-6 text-[44px] text-medinfo-primary">
+							<span className="bg-medinfo-primary-main-subtle block size-[92px] rounded-[16px] p-6 text-[44px] text-medinfo-primary-main">
 								<IconBox icon={advantage.icon} />
 							</span>
 
-							<h3 className="mt-5 text-[24px] font-semibold text-medinfo-primary">
+							<h3 className="mt-5 text-[24px] font-semibold text-medinfo-primary-main">
 								{advantage.title}
 							</h3>
 
@@ -176,7 +174,7 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary md:text-[52px] md:font-bold md:leading-[60px]">
+				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary-main md:text-[52px] md:font-bold md:leading-[60px]">
 					Did you know?
 				</h2>
 
@@ -221,7 +219,7 @@ function HomePage() {
 			</section>
 
 			<section>
-				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary md:text-[52px] md:font-bold md:leading-[60px]">
+				<h2 className="text-center text-[28px] font-semibold leading-9 text-medinfo-primary-main md:text-[52px] md:font-bold md:leading-[60px]">
 					Frequently Asked Questions
 				</h2>
 
@@ -234,19 +232,19 @@ function HomePage() {
 								<li>
 									<Accordion.Trigger
 										icon={
-											<span className="flex items-center justify-center rounded-full bg-medinfo-primary p-[10px] md:p-4">
+											<span className="flex items-center justify-center rounded-full bg-medinfo-primary-main p-[10px] md:p-4">
 												<ChevronDownIcon className="size-4 md:size-6" />
 											</span>
 										}
 										classNames={{
-											base: "text-[22px] md:font-semibold md:text-[32px] min-h-[68px] rounded-t-[16px] border-x border-t border-medinfo-primary-darker data-[state=closed]:rounded-b-[16px] data-[state=closed]:border-b py-[15px] px-6 md:p-6",
+											base: "text-[22px] md:font-semibold md:text-[32px] min-h-[68px] rounded-t-[16px] border-x border-t border-medinfo-primary-main-darker data-[state=closed]:rounded-b-[16px] data-[state=closed]:border-b py-[15px] px-6 md:p-6",
 										}}
 									>
 										{FAQ.question}
 									</Accordion.Trigger>
 
-									<Accordion.Content className="rounded-b-[16px] border-x border-b border-medinfo-primary-darker px-6 pb-6 pt-0">
-										<hr className="mb-4 h-[2px] bg-medinfo-secondary" />
+									<Accordion.Content className="border-medinfo-primary-main-darker rounded-b-[16px] border-x border-b px-6 pb-6 pt-0">
+										<hr className="mb-4 h-[2px] bg-medinfo-secondary-main" />
 										{FAQ.answer}
 									</Accordion.Content>
 								</li>

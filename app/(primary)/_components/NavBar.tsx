@@ -3,17 +3,17 @@
 import { Logo } from "@/components/common";
 import { HamburgerIcon, SearchIcon } from "@/components/icons";
 import { Button } from "@/components/ui";
-import { useNavScroll } from "@/lib/hooks";
+import { useScrollObserver } from "@/lib/hooks";
 import { cnJoin } from "@/lib/utils/cn";
 
 function NavBar() {
-	const { headerRef, isScrolled } = useNavScroll();
+	const { observedElementRef: headerRef, isScrolled } = useScrollObserver();
 
 	return (
 		<header
 			ref={headerRef}
 			className={cnJoin(
-				"sticky inset-[0_0_auto_0] z-[500] flex w-full items-center justify-between bg-white/90 px-6 py-[17px] backdrop-blur-md [transition:box-shadow_0.8s_ease] lg:px-[102px] lg:py-5",
+				"sticky inset-[0_0_auto_0] z-[500] flex w-full items-center justify-between bg-white/90 px-6 py-[17px] backdrop-blur-md [transition:box-shadow_0.3s_ease] lg:px-[102px] lg:py-5",
 				isScrolled && "shadow-[0_4px_8px_hsl(150,20%,25%,0.25)]"
 			)}
 		>
@@ -29,11 +29,11 @@ function NavBar() {
 			</nav>
 
 			<div className="flex min-w-fit items-center gap-8 max-lg:hidden">
-				<button className="rounded-[8px] border-2 border-medinfo-primary lg:p-5">
+				<Button size="small" theme="outline">
 					<SearchIcon />
-				</button>
+				</Button>
 
-				<Button size={{ lg: "large" }}>Join Us</Button>
+				<Button>Join Us</Button>
 			</div>
 
 			<button className="lg:hidden">

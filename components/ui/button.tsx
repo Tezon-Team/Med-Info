@@ -19,12 +19,13 @@ const button = tv(
 		base: "rounded-[8px]",
 		variants: {
 			theme: {
-				primary: "bg-medinfo-primary text-white",
-				outline: "border border-white bg-transparent text-white",
+				primary: "bg-medinfo-primary-main text-white",
+				outline: "border-2 border-medinfo-primary-main bg-transparent text-medinfo-primary-main",
+				"outline-white": "border-2 border-white bg-transparent text-white",
 			},
 			size: {
-				medium: "px-6 py-3 text-base",
-				large: "px-8 py-[18px] text-[20px]",
+				small: "p-[14px] lg:p-5",
+				medium: "px-6 py-3 text-base lg:px-8 lg:py-[18px] lg:text-[20px]",
 			},
 		},
 		defaultVariants: {

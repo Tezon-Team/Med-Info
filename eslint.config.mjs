@@ -408,6 +408,7 @@ const eslintConfigArray = [
 			"react/no-danger-with-children": "error",
 			"react/jsx-no-target-blank": ["error", { enforceDynamicLinks: "always" }],
 			"react/jsx-no-duplicate-props": ["error", { ignoreCase: true }],
+			"react/no-unescaped-entities": "off",
 		},
 	},
 

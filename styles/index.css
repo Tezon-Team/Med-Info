@@ -8,13 +8,13 @@
 /*-------------------*/
 @layer base {
 	:root {
-		--color-primary: hsl(150, 20%, 25%);
+		--color-primary-main: hsl(150, 20%, 25%);
 		--color-primary-darker: hsl(150, 21%, 17%);
 		--color-primary-lighter: hsl(150, 19%, 48%);
 		--color-primary-subtle: hsl(150, 75%, 88%);
 
-		--color-secondary: hsl(46, 15%, 83%);
-		--color-seconday-darker: hsl(46, 15%, 63%);
+		--color-secondary-main: hsl(46, 15%, 83%);
+		--color-secondary-darker: hsl(46, 15%, 63%);
 		--color-secondary-lighter: hsl(46, 15%, 92%);
 		--color-secondary-subtle: hsl(46, 15%, 97%);
 
@@ -23,7 +23,18 @@
 		--color-light-3: hsl(144, 20%, 95%);
 		--color-light-4: hsl(150, 25%, 98%);
 
+		--color-dark-1: hsl(0, 0%, 25%);
+		--color-dark-2: hsl(0, 0%, 35%);
+		--color-dark-3: hsl(0, 0%, 45%);
+		--color-dark-4: hsl(0, 0%, 55%);
+
+		--color-error-main: hsl(0, 100%, 62%);
+		--color-error-darker: hsl(0, 78%, 55%);
+		--color-error-lighter: hsl(0, 100%, 68%);
+		--color-error-subtle: hsl(0, 100%, 75%);
+
 		--text-body: hsl(0, 0%, 20%);
+		--text-disabled: hsl(0, 0%, 93%);
 	}
 }
 
